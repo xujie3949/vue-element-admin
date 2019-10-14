@@ -1,32 +1,16 @@
 <template>
     <div class="app-container documentation-container">
-        <a
-            class="document-btn"
-            target="_blank"
-            href="https://panjiachen.github.io/vue-element-admin-site/"
+        <a class="document-btn" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/"
             >Documentation</a
         >
-        <a
-            class="document-btn"
-            target="_blank"
-            href="https://github.com/PanJiaChen/vue-element-admin/"
+        <a class="document-btn" target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/"
             >Github Repository</a
         >
-        <a
-            class="document-btn"
-            target="_blank"
-            href="https://panjiachen.gitee.io/vue-element-admin-site/zh/"
+        <a class="document-btn" target="_blank" href="https://panjiachen.gitee.io/vue-element-admin-site/zh/"
             >国内文档</a
         >
-        <dropdown-menu
-            :items="articleList"
-            style="float:left;margin-left:50px;"
-            title="系列文章"
-        />
-        <a
-            class="document-btn"
-            target="_blank"
-            href="https://panjiachen.github.io/vue-element-admin-site/zh/job/"
+        <dropdown-menu :items="articleList" style="float:left;margin-left:50px;" title="系列文章" />
+        <a class="document-btn" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/zh/job/"
             >内推招聘</a
         >
     </div>

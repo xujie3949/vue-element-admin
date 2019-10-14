@@ -7,50 +7,32 @@
                 </div>
                 <div style="margin-bottom:50px;">
                     <el-col :span="4" class="text-center">
-                        <router-link
-                            class="pan-btn blue-btn"
-                            to="/documentation/index"
-                        >
+                        <router-link class="pan-btn blue-btn" to="/documentation/index">
                             Documentation
                         </router-link>
                     </el-col>
                     <el-col :span="4" class="text-center">
-                        <router-link
-                            class="pan-btn light-blue-btn"
-                            to="/icon/index"
-                        >
+                        <router-link class="pan-btn light-blue-btn" to="/icon/index">
                             Icons
                         </router-link>
                     </el-col>
                     <el-col :span="4" class="text-center">
-                        <router-link
-                            class="pan-btn pink-btn"
-                            to="/excel/export-excel"
-                        >
+                        <router-link class="pan-btn pink-btn" to="/excel/export-excel">
                             Excel
                         </router-link>
                     </el-col>
                     <el-col :span="4" class="text-center">
-                        <router-link
-                            class="pan-btn green-btn"
-                            to="/table/complex-table"
-                        >
+                        <router-link class="pan-btn green-btn" to="/table/complex-table">
                             Table
                         </router-link>
                     </el-col>
                     <el-col :span="4" class="text-center">
-                        <router-link
-                            class="pan-btn tiffany-btn"
-                            to="/example/create"
-                        >
+                        <router-link class="pan-btn tiffany-btn" to="/example/create">
                             Form
                         </router-link>
                     </el-col>
                     <el-col :span="4" class="text-center">
-                        <router-link
-                            class="pan-btn yellow-btn"
-                            to="/theme/index"
-                        >
+                        <router-link class="pan-btn yellow-btn" to="/theme/index">
                             Theme
                         </router-link>
                     </el-col>
@@ -117,10 +99,7 @@
                         <span>hover text</span>
                     </div>
                     <div class="component-item">
-                        <mallki
-                            class-name="mallki-text"
-                            text="vue-element-admin"
-                        />
+                        <mallki class-name="mallki-text" text="vue-element-admin" />
                     </div>
                 </el-card>
             </el-col>
@@ -133,11 +112,7 @@
                         <span>Share</span>
                     </div>
                     <div class="component-item" style="height:420px;">
-                        <dropdown-menu
-                            :items="articleList"
-                            style="margin:0 auto;"
-                            title="系列文章"
-                        />
+                        <dropdown-menu :items="articleList" style="margin:0 auto;" title="系列文章" />
                     </div>
                 </el-card>
             </el-col>
@@ -176,9 +151,7 @@ export default {
                 title: ''
             },
             demoRules: {
-                title: [
-                    { required: true, trigger: 'change', validator: validate }
-                ]
+                title: [{ required: true, trigger: 'change', validator: validate }]
             },
             articleList: [
                 {

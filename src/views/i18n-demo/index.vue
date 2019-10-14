@@ -3,9 +3,7 @@
         <el-card class="box-card" style="margin-top:40px;">
             <div slot="header" class="clearfix">
                 <svg-icon icon-class="international" />
-                <span style="margin-left:10px;">{{
-                    $t('i18nView.title')
-                }}</span>
+                <span style="margin-left:10px;">{{ $t('i18nView.title') }}</span>
             </div>
             <div>
                 <el-radio-group v-model="lang" size="small">
@@ -31,23 +29,11 @@
         <el-row :gutter="20" style="margin:100px 15px 50px;">
             <el-col :span="12" :xs="24">
                 <div class="block">
-                    <el-date-picker
-                        v-model="date"
-                        :placeholder="$t('i18nView.datePlaceholder')"
-                        type="date"
-                    />
+                    <el-date-picker v-model="date" :placeholder="$t('i18nView.datePlaceholder')" type="date" />
                 </div>
                 <div class="block">
-                    <el-select
-                        v-model="value"
-                        :placeholder="$t('i18nView.selectPlaceholder')"
-                    >
-                        <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                        />
+                    <el-select v-model="value" :placeholder="$t('i18nView.selectPlaceholder')">
+                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
                     </el-select>
                 </div>
                 <div class="block">
@@ -72,29 +58,10 @@
                 </div>
             </el-col>
             <el-col :span="12" :xs="24">
-                <el-table
-                    :data="tableData"
-                    fit
-                    highlight-current-row
-                    border
-                    style="width: 100%"
-                >
-                    <el-table-column
-                        :label="$t('i18nView.tableName')"
-                        prop="name"
-                        width="100"
-                        align="center"
-                    />
-                    <el-table-column
-                        :label="$t('i18nView.tableDate')"
-                        prop="date"
-                        width="120"
-                        align="center"
-                    />
-                    <el-table-column
-                        :label="$t('i18nView.tableAddress')"
-                        prop="address"
-                    />
+                <el-table :data="tableData" fit highlight-current-row border style="width: 100%">
+                    <el-table-column :label="$t('i18nView.tableName')" prop="name" width="100" align="center" />
+                    <el-table-column :label="$t('i18nView.tableDate')" prop="date" width="120" align="center" />
+                    <el-table-column :label="$t('i18nView.tableAddress')" prop="address" />
                 </el-table>
             </el-col>
         </el-row>

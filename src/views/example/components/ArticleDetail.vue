@@ -1,28 +1,14 @@
 <template>
     <div class="createPost-container">
-        <el-form
-            ref="postForm"
-            :model="postForm"
-            :rules="rules"
-            class="form-container"
-        >
+        <el-form ref="postForm" :model="postForm" :rules="rules" class="form-container">
             <sticky :z-index="10" :class-name="'sub-navbar ' + postForm.status">
                 <CommentDropdown v-model="postForm.comment_disabled" />
                 <PlatformDropdown v-model="postForm.platforms" />
                 <SourceUrlDropdown v-model="postForm.source_uri" />
-                <el-button
-                    v-loading="loading"
-                    style="margin-left: 10px;"
-                    type="success"
-                    @click="submitForm"
-                >
+                <el-button v-loading="loading" style="margin-left: 10px;" type="success" @click="submitForm">
                     Publish
                 </el-button>
-                <el-button
-                    v-loading="loading"
-                    type="warning"
-                    @click="draftForm"
-                >
+                <el-button v-loading="loading" type="warning" @click="draftForm">
                     Draft
                 </el-button>
             </sticky>
@@ -33,12 +19,7 @@
 
                     <el-col :span="24">
                         <el-form-item style="margin-bottom: 40px;" prop="title">
-                            <MDinput
-                                v-model="postForm.title"
-                                :maxlength="100"
-                                name="name"
-                                required
-                            >
+                            <MDinput v-model="postForm.title" :maxlength="100" name="name" required>
                                 Title
                             </MDinput>
                         </el-form-item>
@@ -46,11 +27,7 @@
                         <div class="postInfo-container">
                             <el-row>
                                 <el-col :span="8">
-                                    <el-form-item
-                                        label-width="60px"
-                                        label="Author:"
-                                        class="postInfo-container-item"
-                                    >
+                                    <el-form-item label-width="60px" label="Author:" class="postInfo-container-item">
                                         <el-select
                                             v-model="postForm.author"
                                             :remote-method="getRemoteUserList"
@@ -60,8 +37,7 @@
                                             placeholder="Search user"
                                         >
                                             <el-option
-                                                v-for="(item,
-                                                index) in userListOptions"
+                                                v-for="(item, index) in userListOptions"
                                                 :key="item + index"
                                                 :label="item"
                                                 :value="item"
@@ -94,11 +70,7 @@
                                         <el-rate
                                             v-model="postForm.importance"
                                             :max="3"
-                                            :colors="[
-                                                '#99A9BF',
-                                                '#F7BA2A',
-                                                '#FF9900'
-                                            ]"
+                                            :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
                                             :low-threshold="1"
                                             :high-threshold="3"
                                             style="display:inline-block"
@@ -110,11 +82,7 @@
                     </el-col>
                 </el-row>
 
-                <el-form-item
-                    style="margin-bottom: 40px;"
-                    label-width="70px"
-                    label="Summary:"
-                >
+                <el-form-item style="margin-bottom: 40px;" label-width="70px" label="Summary:">
                     <el-input
                         v-model="postForm.content_short"
                         :rows="1"
@@ -123,17 +91,11 @@
                         autosize
                         placeholder="Please enter the content"
                     />
-                    <span v-show="contentShortLength" class="word-counter"
-                        >{{ contentShortLength }}words</span
-                    >
+                    <span v-show="contentShortLength" class="word-counter">{{ contentShortLength }}words</span>
                 </el-form-item>
 
                 <el-form-item prop="content" style="margin-bottom: 30px;">
-                    <Tinymce
-                        ref="editor"
-                        v-model="postForm.content"
-                        :height="400"
-                    />
+                    <Tinymce ref="editor" v-model="postForm.content" :height="400" />
                 </el-form-item>
 
                 <el-form-item prop="image_uri" style="margin-bottom: 30px;">
@@ -153,11 +115,7 @@ import { validURL } from '@/utils/validate';
 import { fetchArticle } from '@/api/article';
 import { searchUser } from '@/api/remote-search';
 import Warning from './Warning';
-import {
-    CommentDropdown,
-    PlatformDropdown,
-    SourceUrlDropdown
-} from './Dropdown';
+import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown';
 
 const defaultForm = {
     status: 'draft',
@@ -313,10 +271,7 @@ export default {
             });
         },
         draftForm() {
-            if (
-                this.postForm.content.length === 0 ||
-                this.postForm.title.length === 0
-            ) {
+            if (this.postForm.content.length === 0 || this.postForm.title.length === 0) {
                 this.$message({
                     message: '请填写必要的标题和内容',
                     type: 'warning'

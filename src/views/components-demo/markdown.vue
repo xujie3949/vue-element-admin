@@ -2,9 +2,7 @@
     <div class="components-container">
         <aside>
             Markdown is based on
-            <a href="https://github.com/nhnent/tui.editor" target="_blank"
-                >tui.editor</a
-            >
+            <a href="https://github.com/nhnent/tui.editor" target="_blank">tui.editor</a>
             ，simply wrapped with Vue.
             <a
                 target="_blank"
@@ -37,10 +35,7 @@
             <el-tag class="tag-title">
                 Customize Toolbar:
             </el-tag>
-            <markdown-editor
-                v-model="content3"
-                :options="{ toolbarItems: ['heading', 'bold', 'italic'] }"
-            />
+            <markdown-editor v-model="content3" :options="{ toolbarItems: ['heading', 'bold', 'italic'] }" />
         </div>
 
         <div class="editor-container">
@@ -52,20 +47,10 @@
                 title="You can change the language of the admin system to see the effect"
                 type="success"
             />
-            <markdown-editor
-                ref="markdownEditor"
-                v-model="content4"
-                :language="language"
-                height="300px"
-            />
+            <markdown-editor ref="markdownEditor" v-model="content4" :language="language" height="300px" />
         </div>
 
-        <el-button
-            style="margin-top:80px;"
-            type="primary"
-            icon="el-icon-document"
-            @click="getHtml"
-        >
+        <el-button style="margin-top:80px;" type="primary" icon="el-icon-document" @click="getHtml">
             Get HTML
         </el-button>
         <div v-html="html" />

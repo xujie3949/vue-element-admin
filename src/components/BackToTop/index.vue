@@ -1,11 +1,6 @@
 <template>
     <transition :name="transitionName">
-        <div
-            v-show="visible"
-            :style="customStyle"
-            class="back-to-ceiling"
-            @click="backToTop"
-        >
+        <div v-show="visible" :style="customStyle" class="back-to-ceiling" @click="backToTop">
             <svg
                 width="16"
                 height="16"
@@ -80,9 +75,7 @@ export default {
             let i = 0;
             this.isMoving = true;
             this.interval = setInterval(() => {
-                const next = Math.floor(
-                    this.easeInOutQuad(10 * i, start, -start, 500)
-                );
+                const next = Math.floor(this.easeInOutQuad(10 * i, start, -start, 500));
                 if (next <= this.backPosition) {
                     window.scrollTo(0, this.backPosition);
                     clearInterval(this.interval);

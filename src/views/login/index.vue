@@ -30,12 +30,7 @@
                 />
             </el-form-item>
 
-            <el-tooltip
-                v-model="capsTooltip"
-                content="Caps lock is On"
-                placement="right"
-                manual
-            >
+            <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
                 <el-form-item prop="password">
                     <span class="svg-container">
                         <svg-icon icon-class="password" />
@@ -54,11 +49,7 @@
                         @keyup.enter.native="handleLogin"
                     />
                     <span class="show-pwd" @click="showPwd">
-                        <svg-icon
-                            :icon-class="
-                                passwordType === 'password' ? 'eye' : 'eye-open'
-                            "
-                        />
+                        <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
                     </span>
                 </el-form-item>
             </el-tooltip>
@@ -75,26 +66,14 @@
             <div style="position:relative">
                 <div class="tips">
                     <span>{{ $t('login.username') }} : admin</span>
-                    <span
-                        >{{ $t('login.password') }} :
-                        {{ $t('login.any') }}</span
-                    >
+                    <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
                 </div>
                 <div class="tips">
-                    <span style="margin-right:18px;">
-                        {{ $t('login.username') }} : editor
-                    </span>
-                    <span
-                        >{{ $t('login.password') }} :
-                        {{ $t('login.any') }}</span
-                    >
+                    <span style="margin-right:18px;"> {{ $t('login.username') }} : editor </span>
+                    <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
                 </div>
 
-                <el-button
-                    class="thirdparty-button"
-                    type="primary"
-                    @click="showDialog = true"
-                >
+                <el-button class="thirdparty-button" type="primary" @click="showDialog = true">
                     {{ $t('login.thirdparty') }}
                 </el-button>
             </div>
@@ -128,9 +107,7 @@ export default {
         };
         const validatePassword = (rule, value, callback) => {
             if (value.length < 6) {
-                callback(
-                    new Error('The password can not be less than 6 digits')
-                );
+                callback(new Error('The password can not be less than 6 digits'));
             } else {
                 callback();
             }
@@ -192,10 +169,7 @@ export default {
     methods: {
         checkCapslock({ shiftKey, key } = {}) {
             if (key && key.length === 1) {
-                if (
-                    (shiftKey && (key >= 'a' && key <= 'z')) ||
-                    (!shiftKey && (key >= 'A' && key <= 'Z'))
-                ) {
+                if ((shiftKey && (key >= 'a' && key <= 'z')) || (!shiftKey && (key >= 'A' && key <= 'Z'))) {
                     this.capsTooltip = true;
                 } else {
                     this.capsTooltip = false;

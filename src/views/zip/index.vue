@@ -81,21 +81,10 @@ export default {
             this.downloadLoading = true;
             import('@/vendor/Export2Zip').then(zip => {
                 const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date'];
-                const filterVal = [
-                    'id',
-                    'title',
-                    'author',
-                    'pageviews',
-                    'display_time'
-                ];
+                const filterVal = ['id', 'title', 'author', 'pageviews', 'display_time'];
                 const list = this.list;
                 const data = this.formatJson(filterVal, list);
-                zip.export_txt_to_zip(
-                    tHeader,
-                    data,
-                    this.filename,
-                    this.filename
-                );
+                zip.export_txt_to_zip(tHeader, data, this.filename, this.filename);
                 this.downloadLoading = false;
             });
         },

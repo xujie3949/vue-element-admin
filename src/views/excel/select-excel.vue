@@ -96,20 +96,8 @@ export default {
             if (this.multipleSelection.length) {
                 this.downloadLoading = true;
                 import('@/vendor/Export2Excel').then(excel => {
-                    const tHeader = [
-                        'Id',
-                        'Title',
-                        'Author',
-                        'Readings',
-                        'Date'
-                    ];
-                    const filterVal = [
-                        'id',
-                        'title',
-                        'author',
-                        'pageviews',
-                        'display_time'
-                    ];
+                    const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date'];
+                    const filterVal = ['id', 'title', 'author', 'pageviews', 'display_time'];
                     const list = this.multipleSelection;
                     const data = this.formatJson(filterVal, list);
                     excel.export_json_to_excel({

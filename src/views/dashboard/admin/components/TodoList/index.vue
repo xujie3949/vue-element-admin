@@ -2,12 +2,7 @@
     <section class="todoapp">
         <!-- header -->
         <header class="header">
-            <input
-                class="new-todo"
-                autocomplete="off"
-                placeholder="Todo List"
-                @keyup.enter="addTodo"
-            />
+            <input class="new-todo" autocomplete="off" placeholder="Todo List" @keyup.enter="addTodo" />
         </header>
         <!-- main section -->
         <section v-show="todos.length" class="main">
@@ -38,11 +33,9 @@
             </span>
             <ul class="filters">
                 <li v-for="(val, key) in filters" :key="key">
-                    <a
-                        :class="{ selected: visibility === key }"
-                        @click.prevent="visibility = key"
-                        >{{ key | capitalize }}</a
-                    >
+                    <a :class="{ selected: visibility === key }" @click.prevent="visibility = key">{{
+                        key | capitalize
+                    }}</a>
                 </li>
             </ul>
             <!-- <button class="clear-completed" v-show="todos.length > remaining" @click="clearCompleted">
@@ -98,10 +91,7 @@ export default {
     },
     methods: {
         setLocalStorage() {
-            window.localStorage.setItem(
-                STORAGE_KEY,
-                JSON.stringify(this.todos)
-            );
+            window.localStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos));
         },
         addTodo(e) {
             const text = e.target.value;

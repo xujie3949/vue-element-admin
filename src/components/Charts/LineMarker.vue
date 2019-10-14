@@ -1,9 +1,5 @@
 <template>
-    <div
-        :id="id"
-        :class="className"
-        :style="{ height: height, width: width }"
-    />
+    <div :id="id" :class="className" :style="{ height: height, width: width }" />
 </template>
 
 <script>
@@ -182,20 +178,7 @@ export default {
                                 borderWidth: 12
                             }
                         },
-                        data: [
-                            220,
-                            182,
-                            191,
-                            134,
-                            150,
-                            120,
-                            110,
-                            125,
-                            145,
-                            122,
-                            165,
-                            122
-                        ]
+                        data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122]
                     },
                     {
                         name: 'CTCC',
@@ -239,20 +222,7 @@ export default {
                                 borderWidth: 12
                             }
                         },
-                        data: [
-                            120,
-                            110,
-                            125,
-                            145,
-                            122,
-                            165,
-                            122,
-                            220,
-                            182,
-                            191,
-                            134,
-                            150
-                        ]
+                        data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150]
                     },
                     {
                         name: 'CUCC',
@@ -296,20 +266,7 @@ export default {
                                 borderWidth: 12
                             }
                         },
-                        data: [
-                            220,
-                            182,
-                            125,
-                            145,
-                            122,
-                            191,
-                            134,
-                            150,
-                            120,
-                            110,
-                            165,
-                            122
-                        ]
+                        data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122]
                     }
                 ]
             });

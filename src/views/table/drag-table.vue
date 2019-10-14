@@ -19,9 +19,7 @@
 
             <el-table-column width="180px" align="center" label="Date">
                 <template slot-scope="scope">
-                    <span>{{
-                        scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}')
-                    }}</span>
+                    <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
                 </template>
             </el-table-column>
 
@@ -39,12 +37,7 @@
 
             <el-table-column width="100px" label="Importance">
                 <template slot-scope="scope">
-                    <svg-icon
-                        v-for="n in +scope.row.importance"
-                        :key="n"
-                        icon-class="star"
-                        class="icon-star"
-                    />
+                    <svg-icon v-for="n in +scope.row.importance" :key="n" icon-class="star" class="icon-star" />
                 </template>
             </el-table-column>
 
@@ -70,9 +63,7 @@
         </el-table>
         <!-- $t is vue-i18n global function to translate lang (lang in @/lang)  -->
         <div class="show-d">
-            <el-tag style="margin-right:12px;"
-                >{{ $t('table.dragTips1') }} :</el-tag
-            >
+            <el-tag style="margin-right:12px;">{{ $t('table.dragTips1') }} :</el-tag>
             {{ oldList }}
         </div>
         <div class="show-d">
@@ -128,9 +119,7 @@ export default {
             });
         },
         setSort() {
-            const el = this.$refs.dragTable.$el.querySelectorAll(
-                '.el-table__body-wrapper > table > tbody'
-            )[0];
+            const el = this.$refs.dragTable.$el.querySelectorAll('.el-table__body-wrapper > table > tbody')[0];
             this.sortable = Sortable.create(el, {
                 ghostClass: 'sortable-ghost', // Class name for the drop placeholder,
                 setData: function(dataTransfer) {

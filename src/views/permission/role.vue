@@ -22,28 +22,17 @@
             </el-table-column>
             <el-table-column align="center" label="Operations">
                 <template slot-scope="scope">
-                    <el-button
-                        type="primary"
-                        size="small"
-                        @click="handleEdit(scope)"
-                    >
+                    <el-button type="primary" size="small" @click="handleEdit(scope)">
                         {{ $t('permission.editPermission') }}
                     </el-button>
-                    <el-button
-                        type="danger"
-                        size="small"
-                        @click="handleDelete(scope)"
-                    >
+                    <el-button type="danger" size="small" @click="handleDelete(scope)">
                         {{ $t('permission.delete') }}
                     </el-button>
                 </template>
             </el-table-column>
         </el-table>
 
-        <el-dialog
-            :visible.sync="dialogVisible"
-            :title="dialogType === 'edit' ? 'Edit Role' : 'New Role'"
-        >
+        <el-dialog :visible.sync="dialogVisible" :title="dialogType === 'edit' ? 'Edit Role' : 'New Role'">
             <el-form :model="role" label-width="80px" label-position="left">
                 <el-form-item label="Name">
                     <el-input v-model="role.name" placeholder="Role Name" />
@@ -83,13 +72,7 @@
 <script>
 import path from 'path';
 import { deepClone } from '@/utils';
-import {
-    getRoutes,
-    getRoles,
-    addRole,
-    deleteRole,
-    updateRole
-} from '@/api/role';
+import { getRoutes, getRoles, addRole, deleteRole, updateRole } from '@/api/role';
 import i18n from '@/lang';
 
 const defaultRole = {
@@ -155,16 +138,9 @@ export default {
                     continue;
                 }
 
-                const onlyOneShowingChild = this.onlyOneShowingChild(
-                    route.children,
-                    route
-                );
+                const onlyOneShowingChild = this.onlyOneShowingChild(route.children, route);
 
-                if (
-                    route.children &&
-                    onlyOneShowingChild &&
-                    !route.alwaysShow
-                ) {
+                if (route.children && onlyOneShowingChild && !route.alwaysShow) {
                     route = onlyOneShowingChild;
                 }
 
@@ -175,10 +151,7 @@ export default {
 
                 // recursive child routes
                 if (route.children) {
-                    data.children = this.generateRoutes(
-                        route.children,
-                        data.path
-                    );
+                    data.children = this.generateRoutes(route.children, data.path);
                 }
                 res.push(data);
             }
@@ -243,17 +216,10 @@ export default {
 
                 // recursive child routes
                 if (route.children) {
-                    route.children = this.generateTree(
-                        route.children,
-                        routePath,
-                        checkedKeys
-                    );
+                    route.children = this.generateTree(route.children, routePath, checkedKeys);
                 }
 
-                if (
-                    checkedKeys.includes(routePath) ||
-                    (route.children && route.children.length >= 1)
-                ) {
+                if (checkedKeys.includes(routePath) || (route.children && route.children.length >= 1)) {
                     res.push(route);
                 }
             }
@@ -263,21 +229,13 @@ export default {
             const isEdit = this.dialogType === 'edit';
 
             const checkedKeys = this.$refs.tree.getCheckedKeys();
-            this.role.routes = this.generateTree(
-                deepClone(this.serviceRoutes),
-                '/',
-                checkedKeys
-            );
+            this.role.routes = this.generateTree(deepClone(this.serviceRoutes), '/', checkedKeys);
 
             if (isEdit) {
                 await updateRole(this.role.key, this.role);
                 for (let index = 0; index < this.rolesList.length; index++) {
                     if (this.rolesList[index].key === this.role.key) {
-                        this.rolesList.splice(
-                            index,
-                            1,
-                            Object.assign({}, this.role)
-                        );
+                        this.rolesList.splice(index, 1, Object.assign({}, this.role));
                         break;
                     }
                 }
@@ -308,10 +266,7 @@ export default {
             // When there is only one child route, the child route is displayed by default
             if (showingChildren.length === 1) {
                 onlyOneChild = showingChildren[0];
-                onlyOneChild.path = path.resolve(
-                    parent.path,
-                    onlyOneChild.path
-                );
+                onlyOneChild.path = path.resolve(parent.path, onlyOneChild.path);
                 return onlyOneChild;
             }
 

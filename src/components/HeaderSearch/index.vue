@@ -1,10 +1,6 @@
 <template>
     <div :class="{ show: show }" class="header-search">
-        <svg-icon
-            class-name="search-icon"
-            icon-class="search"
-            @click.stop="click"
-        />
+        <svg-icon class-name="search-icon" icon-class="search" @click.stop="click" />
         <el-select
             ref="headerSearchSelect"
             v-model="search"
@@ -16,12 +12,7 @@
             class="header-search-select"
             @change="change"
         >
-            <el-option
-                v-for="item in options"
-                :key="item.path"
-                :value="item"
-                :label="item.title.join(' > ')"
-            />
+            <el-option v-for="item in options" :key="item.path" :value="item" :label="item.title.join(' > ')" />
         </el-select>
     </div>
 </template>
@@ -77,13 +68,11 @@ export default {
         click() {
             this.show = !this.show;
             if (this.show) {
-                this.$refs.headerSearchSelect &&
-                    this.$refs.headerSearchSelect.focus();
+                this.$refs.headerSearchSelect && this.$refs.headerSearchSelect.focus();
             }
         },
         close() {
-            this.$refs.headerSearchSelect &&
-                this.$refs.headerSearchSelect.blur();
+            this.$refs.headerSearchSelect && this.$refs.headerSearchSelect.blur();
             this.options = [];
             this.show = false;
         },
@@ -146,11 +135,7 @@ export default {
 
                 // recursive child routes
                 if (router.children) {
-                    const tempRoutes = this.generateRoutes(
-                        router.children,
-                        data.path,
-                        data.title
-                    );
+                    const tempRoutes = this.generateRoutes(router.children, data.path, data.title);
                     if (tempRoutes.length >= 1) {
                         res = [...res, ...tempRoutes];
                     }

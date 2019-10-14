@@ -2,12 +2,8 @@
     <div class="components-container">
         <aside>
             Json-Editor is base on
-            <a href="https://github.com/codemirror/CodeMirror" target="_blank"
-                >CodeMirrorr</a
-            >. Lint base on
-            <a
-                href="https://github.com/codemirror/CodeMirror/blob/master/addon/lint/json-lint.js"
-                target="_blank"
+            <a href="https://github.com/codemirror/CodeMirror" target="_blank">CodeMirrorr</a>. Lint base on
+            <a href="https://github.com/codemirror/CodeMirror/blob/master/addon/lint/json-lint.js" target="_blank"
                 >json-lint</a
             >.
         </aside>

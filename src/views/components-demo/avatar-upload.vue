@@ -2,12 +2,7 @@
     <div class="components-container">
         <aside>
             This is based on
-            <a
-                class="link-type"
-                href="//github.com/dai-siki/vue-image-crop-upload"
-            >
-                vue-image-crop-upload</a
-            >.
+            <a class="link-type" href="//github.com/dai-siki/vue-image-crop-upload"> vue-image-crop-upload</a>.
             {{ $t('components.imageUploadTips') }}
         </aside>
 
@@ -46,8 +41,7 @@ export default {
         return {
             imagecropperShow: false,
             imagecropperKey: 0,
-            image:
-                'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191'
+            image: 'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191'
         };
     },
     methods: {

@@ -1,9 +1,5 @@
 <template>
-    <el-dropdown
-        trigger="click"
-        class="international"
-        @command="handleSetLanguage"
-    >
+    <el-dropdown trigger="click" class="international" @command="handleSetLanguage">
         <div>
             <svg-icon class-name="international-icon" icon-class="language" />
         </div>

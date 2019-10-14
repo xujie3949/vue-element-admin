@@ -54,9 +54,7 @@
             <el-table-column align="center" label="Date" width="220">
                 <template slot-scope="scope">
                     <i class="el-icon-time" />
-                    <span>{{
-                        scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}')
-                    }}</span>
+                    <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
                 </template>
             </el-table-column>
         </el-table>
@@ -98,13 +96,7 @@ export default {
             this.downloadLoading = true;
             import('@/vendor/Export2Excel').then(excel => {
                 const tHeader = ['Id', 'Title', 'Author', 'Readings', 'Date'];
-                const filterVal = [
-                    'id',
-                    'title',
-                    'author',
-                    'pageviews',
-                    'display_time'
-                ];
+                const filterVal = ['id', 'title', 'author', 'pageviews', 'display_time'];
                 const list = this.list;
                 const data = this.formatJson(filterVal, list);
                 excel.export_json_to_excel({

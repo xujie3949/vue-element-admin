@@ -7,23 +7,10 @@
             title="Tab with keep-alive"
             type="success"
         />
-        <el-tabs
-            v-model="activeName"
-            style="margin-top:15px;"
-            type="border-card"
-        >
-            <el-tab-pane
-                v-for="item in tabMapOptions"
-                :key="item.key"
-                :label="item.label"
-                :name="item.key"
-            >
+        <el-tabs v-model="activeName" style="margin-top:15px;" type="border-card">
+            <el-tab-pane v-for="item in tabMapOptions" :key="item.key" :label="item.label" :name="item.key">
                 <keep-alive>
-                    <tab-pane
-                        v-if="activeName == item.key"
-                        :type="item.key"
-                        @create="showCreatedTimes"
-                    />
+                    <tab-pane v-if="activeName == item.key" :type="item.key" @create="showCreatedTimes" />
                 </keep-alive>
             </el-tab-pane>
         </el-tabs>

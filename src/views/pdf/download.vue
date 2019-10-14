@@ -17,11 +17,7 @@
                 >medium</a
             >
         </div>
-        <div
-            ref="content"
-            class="node-article-content"
-            v-html="article.content"
-        />
+        <div ref="content" class="node-article-content" v-html="article.content" />
     </div>
 </template>
 
@@ -106,8 +102,7 @@ export default {
     letter-spacing: 0.5px;
     line-height: 28px;
     margin-bottom: 30px;
-    font-family: medium-content-serif-font, Georgia, Cambria, 'Times New Roman',
-        Times, serif;
+    font-family: medium-content-serif-font, Georgia, Cambria, 'Times New Roman', Times, serif;
 
     & > :last-child {
         margin-bottom: 0;
@@ -154,11 +149,7 @@ export default {
     a {
         text-decoration: none;
         background-repeat: repeat-x;
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.84) 100%,
-            rgba(0, 0, 0, 0) 0
-        );
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.84) 100%, rgba(0, 0, 0, 0) 0);
         background-size: 1px 1px;
         background-position: 0 calc(1em + 1px);
         padding: 0 6px;
@@ -184,8 +175,7 @@ export default {
     blockquote {
         --x-height-multiplier: 0.375;
         --baseline-multiplier: 0.17;
-        font-family: medium-content-serif-font, Georgia, Cambria,
-            'Times New Roman', Times, serif;
+        font-family: medium-content-serif-font, Georgia, Cambria, 'Times New Roman', Times, serif;
         letter-spacing: 0.01rem;
         font-weight: 400;
         font-style: italic;

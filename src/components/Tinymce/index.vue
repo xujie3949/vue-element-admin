@@ -1,16 +1,8 @@
 <template>
-    <div
-        :class="{ fullscreen: fullscreen }"
-        class="tinymce-container"
-        :style="{ width: containerWidth }"
-    >
+    <div :class="{ fullscreen: fullscreen }" class="tinymce-container" :style="{ width: containerWidth }">
         <textarea :id="tinymceId" class="tinymce-textarea" />
         <div class="editor-custom-btn-container">
-            <editorImage
-                color="#1890ff"
-                class="editor-upload-btn"
-                @successCBK="imageSuccessCBK"
-            />
+            <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK" />
         </div>
     </div>
 </template>
@@ -26,8 +18,7 @@ import toolbar from './toolbar';
 import load from './dynamicLoadScript';
 
 // why use this cdn, detail see https://github.com/PanJiaChen/tinymce-all-in-one
-const tinymceCDN =
-    'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js';
+const tinymceCDN = 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js';
 
 export default {
     name: 'Tinymce',
@@ -36,11 +27,7 @@ export default {
         id: {
             type: String,
             default: function() {
-                return (
-                    'vue-tinymce-' +
-                    +new Date() +
-                    ((Math.random() * 1000).toFixed(0) + '')
-                );
+                return 'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '');
             }
         },
         value: {
@@ -99,9 +86,7 @@ export default {
     watch: {
         value(val) {
             if (!this.hasChange && this.hasInit) {
-                this.$nextTick(() =>
-                    window.tinymce.get(this.tinymceId).setContent(val || '')
-                );
+                this.$nextTick(() => window.tinymce.get(this.tinymceId).setContent(val || ''));
             }
         },
         language() {
@@ -224,9 +209,7 @@ export default {
         imageSuccessCBK(arr) {
             const _this = this;
             arr.forEach(v => {
-                window.tinymce
-                    .get(_this.tinymceId)
-                    .insertContent(`<img class="wscnph" src="${v.url}" >`);
+                window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`);
             });
         }
     }
